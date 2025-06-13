@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace NietThijmen\LaravelRoles\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelRolesCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-roles';
 
     public $description = 'My command';
 

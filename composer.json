@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "nietthijmen/laravel-roles",
+    "description": "This is my package laravel-roles",
     "keywords": [
-        ":vendor_name",
+        "NietThijmen",
         "laravel",
-        ":package_slug"
+        "laravel-roles"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/nietthijmen/laravel-roles",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "NietThijmen",
+            "email": "53520119+NietThijmen@users.noreply.github.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "NietThijmen\\LaravelRoles\\": "src/",
+            "NietThijmen\\LaravelRoles\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "NietThijmen\\LaravelRoles\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "NietThijmen\\LaravelRoles\\LaravelRolesServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelRoles": "NietThijmen\\LaravelRoles\\Facades\\LaravelRoles"
             }
         }
     },
