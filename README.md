@@ -33,7 +33,18 @@ withMiddleware(function (Middleware $middleware) {
         ]);
 })
 ```
-6. You're good to go 🎉
+6. Add the RoleServiceProvider
+```php 
+// bootstrap/providers.php
+<?php
+
+return [
+    //...
+    \NietThijmen\LaravelRoles\Providers\RoleServiceProvider::class
+];
+ 
+```
+7. You're good to go 🎉
 
 ## Usage
 ### Blade directive
