@@ -2,14 +2,15 @@
 
 namespace NietThijmen\LaravelRoles;
 
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use NietThijmen\LaravelRoles\Commands\LaravelRolesCommand;
 
 class LaravelRolesServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
+
         /*
          * This class is a Package Service Provider
          *
@@ -17,9 +18,24 @@ class LaravelRolesServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-roles')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_roles_table')
-            ->hasCommand(LaravelRolesCommand::class);
+            ->publishesServiceProvider('LaravelRolesServiceProvider')
+            ->hasMigrations([
+                'create_roles_table',
+                'create_user_roles_table',
+            ])
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->setName('roles:install')
+                    ->setDescription('Install the Laravel Roles package')
+                    ->startWith(function (InstallCommand $command) {
+                        $command->info('Installing Laravel Roles package...');
+                    })
+                    ->publishMigrations()
+                    ->askToRunMigrations()
+                    ->askToStarRepoOnGitHub('nietthijmen/laravel-roles')
+                    ->endWith(function (InstallCommand $command) {
+                        $command->info('Laravel Roles package installed successfully!');
+                    });
+            });
     }
 }
